@@ -3,6 +3,7 @@ package br.com.alura.forum.repository;
 import java.time.Instant;
 import java.util.List;
 
+import br.com.alura.forum.model.OpenTopicByCategory;
 import br.com.alura.forum.model.User;
 import br.com.alura.forum.model.topic.domain.Topic;
 
@@ -47,4 +48,11 @@ public interface TopicRepository extends Repository<Topic, Long>, JpaSpecificati
 	int countUnansweredTopicsByCategoryId(@Param("categoryId") Long categoryId);
 
 	List<Topic> findByOwnerAndCreationInstantAfterOrderByCreationInstantAsc(User owner, Instant creationTime);
+	
+	@Query("SELECT new br.com.alura.forum.model.OpenTopicByCategory"
+			+ "(topic.course.subcategory.category.name as categoryName, count(topic) as topicCount) FROM Topic topic "
+			+ "WHERE topic.status = 'NOT_ANSWERED'"
+			+ "GROUP BY topic.course.subcategory.category")
+	List<OpenTopicByCategory> findOpenTopicsByCategory();
+	
 }
