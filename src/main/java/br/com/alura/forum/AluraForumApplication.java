@@ -6,10 +6,13 @@ import org.springframework.data.web.config.EnableSpringDataWebSupport;
 import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.scheduling.annotation.EnableScheduling;
 
+import de.codecentric.boot.admin.server.config.EnableAdminServer;
+
 @EnableScheduling
 @EnableAsync
 @EnableSpringDataWebSupport
 @SpringBootApplication
+@EnableAdminServer
 public class AluraForumApplication {
 	
 	public static void main(String[] args) {
