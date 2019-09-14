@@ -24,9 +24,9 @@ public class AluraForumApplication {
 		SpringApplication.run(AluraForumApplication.class, args);
 	}
 
-	@Bean
-	public CacheManager cacheManager() {
-		return new ConcurrentMapCacheManager();
-	}
+//	@Bean
+//	public CacheManager cacheManager() {
+//		return new ConcurrentMapCacheManager();
+//	}
 
 }

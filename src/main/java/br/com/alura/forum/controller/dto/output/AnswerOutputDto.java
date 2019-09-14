@@ -1,12 +1,13 @@
 package br.com.alura.forum.controller.dto.output;
 
-import br.com.alura.forum.model.Answer;
-
+import java.io.Serializable;
 import java.time.Instant;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class AnswerOutputDto {
+import br.com.alura.forum.model.Answer;
+
+public class AnswerOutputDto implements Serializable {
 
     private Long id;
     private String content;
