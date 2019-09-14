@@ -87,7 +87,8 @@ public class TopicController {
 	public void initBinder(WebDataBinder binder, @AuthenticationPrincipal User loggedUser) {
         binder.addValidators(new NewTopicCustomValidator(this.topicRepository, loggedUser));
     }
-
+	
+	@Cacheable(value="topicDetails", key="#id")
     @GetMapping(value = "/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public TopicOutputDto getTopicDetails(@PathVariable Long id) {
 
